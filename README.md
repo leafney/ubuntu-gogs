@@ -18,16 +18,16 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 
 ```
 /app
-	- gogs-repositories
-	- gogs
-		- custom
-			- conf
-				  app.ini
-		- data
-			  gogs.db
-		- log
-			  gogs.log
-			  xorm.log
+  gogs-repositories
+  gogs
+    custom
+	  conf
+	    app.ini
+	data
+	  gogs.db
+	log
+	  gogs.log
+	  xorm.log
 ```
 
 ***
@@ -45,7 +45,7 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 8. `Application URL` 使用域和公开的HTTP端口值的组合如：`http://192.168.137.140:10080`
 9. `Log Path` 可以使用默认值：`/home/git/gogs/log` 也可以使用绝对路径： `/app/gogs/log`
 
-更多可参考 [Docker for Gogs](https://github.com/gogits/gogs/blob/master/docker/README.md#settings)
+更多注意事项详见：[Docker for Gogs](https://github.com/gogits/gogs/blob/master/docker/README.md#settings)
 
 当以上各项配置完成，点击 `立即安装` 按钮后页面会跳转至首页并自动登陆设置的管理员账户，如果完成这一步，说明项目配置成功。
 
@@ -56,4 +56,5 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 如果需要进行项目升级或迁移，该容器和Gogs官方中介绍的升级方式一致，详见：[二进制升级 - Gogs](https://gogs.io/docs/upgrade/upgrade_from_binary)。
 
 在启动容器后，复制原项目目录下的 `custom` 、`data` 和 `log` 目录到容器挂载目录下的 `gogs` 目录中，再将原项目中仓库数据复制到挂载目录的 `gogs-repositories` 中即可。
+
 重启容器即生效。
