@@ -1,27 +1,23 @@
 #!/bin/bash
 set -e
 
+gogs_dir="/home/git/gogs/"
+custom_dir="/app/gogs/"
+
 echo "***** Create custom directories *****"
-mkdir -p /app/gogs-repositories /app/gogs/log /app/gogs/ssh /app/gogs/data /app/gogs/conf
+mkdir -p /app/gogs-repositories ${custom_dir}log ${custom_dir}data ${custom_dir}custom/conf
 
-gogs_conf="/home/git/gogs/custom/conf/app.ini"
-custom_conf="/app/gogs/conf/app.ini"
+echo "***** Link ${custom_dir} to ${gogs_dir} *****"
+ln -snf ${custom_dir}data/ ${gogs_dir}
+ln -snf ${custom_dir}custom/ ${gogs_dir}
+ln -snf ${custom_dir}log/ ${gogs_dir}
+echo "***** Link Ok *****"
 
-echo "***** If exist custom config file,Link it to default path and else copy default *****"
-if [[ -f ${custom_conf} ]]; then
-	ln -sf ${custom_conf} ${gogs_conf}
-	echo "***** Link ${custom_conf} to ${gogs_conf} *****"
-else
-	if [[ -f ${gogs_conf} ]]; then
-		cp ${gogs_conf} ${custom_conf}
-		ln -sf ${custom_conf} ${gogs_conf}
-		echo "***** Copy defautl config file to custom path and link it *****"
-	else
-		echo "***** First start install, Don't have default app.ini *****"
-	fi
-fi
-
+echo "***** Set permissions *****"
+chmod -R 777 ${gogs_dir}custom ${gogs_dir}log ${gogs_dir}data ${custom_dir}custom ${custom_dir}log ${custom_dir}data
 chown -R git:git /home/git/gogs
 chown -R git:git /app
+
+echo "***** Done *****"
 
 exec "$@"

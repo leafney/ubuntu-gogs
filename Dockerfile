@@ -12,10 +12,6 @@ RUN set -x && \
     wget --no-check-certificate https://github.com/gogits/gogs/releases/download/v${GOGS_VERSION}/linux_amd64.tar.gz -O gogs.tar.gz && \
     tar -C /home/git -xzf gogs.tar.gz && \
     rm gogs.tar.gz && \
-    cd /home/git/gogs && \
-    mkdir -p custom/conf log && \
-    chmod -R 777 custom log && \
-    chown -R git:git /home/git/gogs && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
 # Setting timezone for China
