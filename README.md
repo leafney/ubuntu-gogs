@@ -21,13 +21,13 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
   gogs-repositories
   gogs
     custom
-	  conf
-	    app.ini
-	data
-	  gogs.db
-	log
-	  gogs.log
-	  xorm.log
+      conf
+        app.ini
+    data
+      gogs.db
+    log
+      gogs.log
+      xorm.log
 ```
 
 ***
@@ -39,7 +39,7 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 3. `Repository Root Path` **更改为绝对路径**： `/app/gogs-repositories`
 4. `Run User` 使用默认用户： `git`
 5. `Domain` 填写Docker宿主机的主机名或物理地址 如： `192.168.137.140`
-6. `SSH Port` 不要勾选使用内置SSH服务器（Don't user `Use Builtin SSH Server
+6. `SSH Port` 不要勾选“使用内置SSH服务器”（Don't tick `Use Builtin SSH Server
 `） 如果你映射Docker外部端口如 `10022:22` 那么这里就填写 `10022`
 7. `HTTP Port` 如果映射Docker外部端口如： `10080:3000` 这里仍然可以使用：`3000`
 8. `Application URL` 使用域和公开的HTTP端口值的组合如：`http://192.168.137.140:10080`
@@ -57,4 +57,4 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 
 在启动容器后，复制原项目目录下的 `custom` 、`data` 和 `log` 目录到容器挂载目录下的 `gogs` 目录中，再将原项目中仓库数据复制到挂载目录的 `gogs-repositories` 中即可。
 
-重启容器即生效。
+最后重启容器即可。
