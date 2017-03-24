@@ -23,8 +23,9 @@ echo "***** To start ssh service *****"
 service ssh stop
 service ssh start
 
-var =$(service ssh status)
-echo "***** The SSH service status is : $var *****"
+var=$(service ssh status)
+echo "***** The SSH service status is : *****"
+echo $var
 
 
 echo "***** To create custom directories *****"
