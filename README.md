@@ -1,6 +1,6 @@
 ### Ubuntu-Gogs
 
-用更简单的方式部署、升级或迁移Gogs容器服务。
+用更简单的方式部署、升级或迁移Gogs服务。
 
 #### 获取容器
 
@@ -55,6 +55,19 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 
 如果需要进行项目升级或迁移，该容器和Gogs官方中介绍的升级方式一致，详见：[二进制升级 - Gogs](https://gogs.io/docs/upgrade/upgrade_from_binary)。
 
-在启动容器后，复制原项目目录下的 `custom` 、`data` 和 `log` 目录到容器挂载目录下的 `gogs` 目录中，再将原项目中仓库数据复制到挂载目录的 `gogs-repositories` 中即可。
+##### 从原有实机部署迁移
 
-最后重启容器即可。
+1. 在启动容器后，复制原项目目录下的 `custom` 、`data` 和 `log` 三个目录到容器挂载目录下的 `gogs` 目录中，再将原项目中仓库数据复制到挂载目录的 `gogs-repositories` 中。
+2. 重启容器即可。
+
+##### 从Docker Gogs旧版本升级
+
+1. 获取新版本Docker Gogs容器，启动容器时指定挂载目录为原旧版本容器挂载目录 `-v /home/tiger/gogsfile:/app` 或将原旧版本容器挂载目录下的 `gogs` 和 `gogs-repositories` 两个目录拷贝并覆盖到新挂载目录下。
+2. 重启容器即可。
+
+#### 相关文章
+
+* [Docker-Ubuntu-Gogs部署gogs容器过程记录](http://www.itfanr.cc/2017/03/23/docker-ubuntu-gogs-deploy/)
+* [Docker-Ubuntu-Gogs部署及配置时遇到的问题](http://www.itfanr.cc/2017/03/24/docker-ubuntu-gogs-problems/)
+* [Docker-Ubuntu-Gogs个性化设置](http://www.itfanr.cc/2017/03/27/docker-ubuntu-gogs-custom/)
+

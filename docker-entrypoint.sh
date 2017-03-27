@@ -4,15 +4,16 @@ set -e
 gogs_dir="/home/git/gogs/"
 custom_dir="/app/gogs/"
 
-echo "***** To create .ssh directory *****"
+echo "***** To create ssh directory *****"
+
 if [[ ! -d "/home/git/.ssh" ]]; then
 	mkdir -p /home/git/.ssh
-	echo "***** Create .ssh dir *****"
+	echo "***** Created .ssh dir *****"
 fi
 
 if [[ ! -f "/home/git/.ssh/authorized_keys" ]]; then
 	touch /home/git/.ssh/authorized_keys
-	echo "***** Create authorized_keys file *****"
+	echo "***** Created authorized_keys file *****"
 fi
 
 chmod 0700 /home/git/.ssh
@@ -25,7 +26,7 @@ service ssh start
 
 var=$(service ssh status)
 echo "***** The SSH service status is : *****"
-echo $var
+echo "$var"
 
 
 echo "***** To create custom directories *****"
