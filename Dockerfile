@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER leafney "babycoolzx@126.com"
 
-ENV GOGS_VERSION 0.11.4
+ENV GOGS_VERSION 0.11.29
 
 RUN apt-get update && \
     set -x && \

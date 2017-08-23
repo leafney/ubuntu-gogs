@@ -70,4 +70,5 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 * [Docker-Ubuntu-Gogs部署gogs容器过程记录](http://www.itfanr.cc/2017/03/23/docker-ubuntu-gogs-deploy/)
 * [Docker-Ubuntu-Gogs部署及配置时遇到的问题](http://www.itfanr.cc/2017/03/24/docker-ubuntu-gogs-problems/)
 * [Docker-Ubuntu-Gogs个性化设置](http://www.itfanr.cc/2017/03/27/docker-ubuntu-gogs-custom/)
+* [Docker-Ubuntu-Gogs关于使用SSH](http://www.itfanr.cc/2017/07/21/docker-ubuntu-gogs-ssh/)
 
