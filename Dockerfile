@@ -5,7 +5,7 @@ ENV GOGS_VERSION 0.11.29
 
 RUN apt-get update && \
     set -x && \
-    apt-get install -y git wget openssh-server && \
+    apt-get install -y git wget openssh-server tzdata && \
     groupadd git && useradd -d /home/git -m -g git git && \
     cd /tmp && \
     wget --no-check-certificate https://github.com/gogits/gogs/releases/download/v${GOGS_VERSION}/linux_amd64.tar.gz -O gogs.tar.gz && \
