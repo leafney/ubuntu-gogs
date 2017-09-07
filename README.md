@@ -32,18 +32,20 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 
 ***
 
-#### 初次启动配置注意事项
+#### 初次启动配置
 
-1. `Database Type` 选择 `SQLite3`  （其他数据库暂未测试）
-2. `Sqlite3 Database Path` 可以使用默认相对路径：`data/gogs.db` 也可以使用绝对路径： `/app/gogs/data/gogs.db`
-3. `Repository Root Path` **更改为绝对路径**： `/app/gogs-repositories`
-4. `Run User` 使用默认用户： `git`
-5. `Domain` 填写Docker宿主机的主机名或物理地址 如： `192.168.137.140`
-6. `SSH Port` 不要勾选“使用内置SSH服务器”（Don't tick `Use Builtin SSH Server
-`） 如果你映射Docker外部端口如 `10022:22` 那么这里就填写 `10022`
-7. `HTTP Port` 如果映射Docker外部端口如： `10080:3000` 这里仍然可以使用：`3000`
-8. `Application URL` 使用域和公开的HTTP端口值的组合如：`http://192.168.137.140:10080`
-9. `Log Path` 可以使用默认值：`/home/git/gogs/log` 也可以使用绝对路径： `/app/gogs/log`
+1. `数据库类型(Database Type)`： 选择 `SQLite3` 
+2. `数据库文件路径(Database Path)`： Sqlite3使用绝对路径 `/app/gogs/data/gogs.db` 或者也可以使用默认相对路径 `data/gogs.db`
+3. `仓库根目录(Repository Root Path)`： **更改为绝对路径**  `/app/gogs-repositories`
+4. `运行系统用户(Run User)`：  使用默认用户  `git`
+5. `域名(Domain)`： 填写Docker宿主机的主机名或物理地址或要使用的域名(不带http/https) 如  `192.168.137.140`
+6. `SSH 端口号(SSH Port)`： 如果你映射Docker外部端口如 `10022:22` 那么这里就填写 `10022` ；不要勾选“使用内置SSH服务器”（Don't tick Use Builtin SSH Server）
+7. `HTTP 端口号(HTTP Port)`： 如果映射Docker外部端口如 `10080:3000` 这里要使用容器端口：`3000`
+8. `应用 URL(Application URL)`： 使用域名和公开的HTTP端口值的组合(带http/https) 如 `http://192.168.137.140:10080`
+9. `日志路径(Log Path)`： 使用路径 `/app/gogs/log`(推荐) 或默认值 `/home/git/gogs/log`
+
+
+更多数据库(`MySQL`、`PostgreSQL`、`SQLite3`、`MSSQL`)配置详见：[Docker-Ubuntu-Gogs数据库及初始化配置](http://www.itfanr.cc/2017/09/07/docker-ubuntu-gogs-initialization/)
 
 更多注意事项详见：[Docker for Gogs](https://github.com/gogits/gogs/blob/master/docker/README.md#settings)
 
@@ -71,4 +73,4 @@ $ docker run --name mygogs -d -p 10080:3000 -p 10022:22 -v /home/tiger/gogsfile:
 * [Docker-Ubuntu-Gogs部署及配置时遇到的问题](http://www.itfanr.cc/2017/03/24/docker-ubuntu-gogs-problems/)
 * [Docker-Ubuntu-Gogs个性化设置](http://www.itfanr.cc/2017/03/27/docker-ubuntu-gogs-custom/)
 * [Docker-Ubuntu-Gogs关于使用SSH](http://www.itfanr.cc/2017/07/21/docker-ubuntu-gogs-ssh/)
-
+* [Docker-Ubuntu-Gogs数据库及初始化配置](http://www.itfanr.cc/2017/09/07/docker-ubuntu-gogs-initialization/)
